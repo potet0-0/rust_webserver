@@ -45,12 +45,20 @@ fn handle_connection(mut stream: TcpStream) {
     let (status, content_type, body) = if method == "GET" && path == "/" {
         let html = fs::read_to_string("static/index.html").unwrap_or_else(|_| "<h1>Hello</h1>".to_string());
         ("200 OK", "text/html", html)
-    } else if method == "GET" && path == "/health" {
-        ("200 OK", "text/plain", "ok".to_string())
+    } else if method == "GET" && path == "/status" {
+        ("200 OK", "text/plain", "status: OK".to_string())
 
     } else if method == "GET" && path == "/main" {
         let html = fs::read_to_string("static/main.html").unwrap_or_else(|_| "main".to_string());
         ("200 OK", "text/html", html)
+
+    } else if method == "GET" && path == "/css/style.css" {
+        let file = fs::read_to_string("static/css/style.css").unwrap_or_default();
+        ("200 OK", "text/css", file)
+
+    } else if method == "GET" && path == "/JavaScript/script.js" {
+        let file = fs::read_to_string("static/JavaScript/scrit.js").unwrap_or_default();
+        ("200 OK", "application/javascript", file)
     }
     else {
         let html = fs::read_to_string("static/404.html").unwrap_or_else(|_| "not found".to_string());

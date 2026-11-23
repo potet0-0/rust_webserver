@@ -1,10 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Rust Website</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/script.js" defer></script>
 </head>
 <body>
-$END$
+
+<nav class="navbar">
+    <h2 class="logo">MyWebsite<span>.</span></h2>
+
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/main">Main</a>
+        <a href="/health">Health</a>
+    </div>
+</nav>
+
+<main class="hero">
+    <div class="status">
+        <span class="status-dot"></span>
+        Rust server is running
+    </div>
+
+    <h1>Welcome to <span>My Website</span></h1>
+
+    <p>
+        This is a placeholder website built with HTML,
+        CSS, JavaScript and a custom Rust web server.
+    </p>
+
+    <button id="welcomeBtn">Click me!</button>
+
+    <p id="message"></p>
+</main>
+
+<footer>
+    <p>Powered by Rust &copy; 2026</p>
+</footer>
+
 </body>
 </html>
